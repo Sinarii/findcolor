@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片配色分析器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 图片配色分析器</h1>
+            <p>上传图片，自动提取主色调</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="color-mode-selector">
+                <label class="mode-label">选择提取模式：</label>
+                <div class="mode-options">
+                    <label class="mode-option">
+                        <input type="radio" name="color-mode" value="8" checked>
+                        <span class="mode-text">8种主色调</span>
+                    </label>
+                    <label class="mode-option">
+                        <input type="radio" name="color-mode" value="50">
+                        <span class="mode-text">所有颜色（最多50种）</span>
+                    </label>
+                </div>
+            </div>
+            <div id="drop-zone" class="drop-zone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                </svg>
+                <p>拖拽图片到这里或点击上传</p>
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <button class="upload-btn">选择图片</button>
+            </div>
+        </div>
+
+        <div class="preview-section" id="preview-section" style="display: none;">
+            <h2>图片预览</h2>
+            <div class="image-container">
+                <img id="preview-image" src="" alt="预览图片">
+                <canvas id="canvas" hidden></canvas>
+            </div>
+        </div>
+
+        <div class="palette-section" id="palette-section" style="display: none;">
+            <h2>色卡</h2>
+            <div id="color-palette" class="color-palette"></div>
+            <button class="download-btn" id="download-btn">下载色卡</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
